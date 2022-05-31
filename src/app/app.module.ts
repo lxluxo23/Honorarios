@@ -13,6 +13,8 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { ClientesComponent } from './clientes/clientes.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { TipoPagoComponent } from './tipo-pago/tipo-pago.component';
+import { ConceptosComponent } from './conceptos/conceptos.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { ConfirmationService, MessageService } from 'primeng/api';
     BodyComponent,
     SidenavComponent,
     ClientesComponent,
-    InicioComponent
+    InicioComponent,
+    TipoPagoComponent,
+    ConceptosComponent
     
   ],
   imports: [
