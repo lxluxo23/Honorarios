@@ -12,7 +12,7 @@ export class ClientesComponent implements OnInit {
     {
       id: 1,
       nombre: 'cliente ',
-      rut:1
+      rut:194746652
     },
     {
       id: 2,
