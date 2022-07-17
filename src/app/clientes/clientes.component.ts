@@ -1,5 +1,5 @@
+import { ClientesService } from './../services/clientes.service';
 import { Component, OnInit } from '@angular/core';
-
 
 @Component({
   selector: 'app-clientes',
@@ -8,24 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientesComponent implements OnInit {
 
-  clientes: any = [
-    {
-      id: 1,
-      nombre: 'cliente ',
-      rut:194746652
-    },
-    {
-      id: 2,
-      nombre: 'cliente 2 ',
-      rut:3
-    },
-  ];
+   clientes: any
 
   constructor(
+    private servicio:ClientesService
 
   ) { }
 
   ngOnInit(): void {
+    this.Traerdatos();
+    console.log("estoy en el componente")
+  }
+
+  async Traerdatos(){
+    console.log("esperando datos")
+    let respuesta = await this.servicio.TraerTodos();
+    this.clientes=respuesta
+    console.log(respuesta)
+    console.log("termino de la data")
+  
   }
 
 }
