@@ -46,7 +46,7 @@
                 <td>{{ clientes.rut }}</td>
                 <td>
                     <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2"></button>
-                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"></button>
+                    <button pButton pRipple icon="pi pi-trash" (click)="eliminar(clientes.id)" class="p-button-rounded p-button-warning"></button>
                 </td>
             </tr>
         </ng-template>

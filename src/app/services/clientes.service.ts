@@ -23,4 +23,17 @@ export class ClientesService {
        console.error(err);
      }
   }
+
+  async Eliminar(id:any){
+    try {
+      const res = await axios.delete(environment.API + 'clientes/'+id, {
+        responseType: 'json',
+      });
+      if (res.status == 200) {
+        return res.data
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  }
 }
