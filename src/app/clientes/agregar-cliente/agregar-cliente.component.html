@@ -1,0 +1,23 @@
+<!-- <p-toast></p-toast> -->
+<!-- la linea de arriba se encarga de las notificaciones -->
+
+<div class="col-md-12">
+    <form [formGroup]="formularioContacto" (ngSubmit)="submit()">
+        <div class="row">
+            <div class="col">
+                <div class="p-col-12 p-md-6 p-lg-4">
+                    <h4 style="color:#ffffff"><b>Nombre</b></h4>
+                    <input type="text" style="width: 100%;" pInputText formControlName="nombre" required />
+                </div>
+            </div>
+            <div class="col">
+                <div class="p-col-12 p-md-6 p-lg-4">
+                    <h4 style="color:#ffffff"><b>Rut</b></h4>
+                    <p-inputMask [style]="{ width: '100%' }" mask="99.999.999-*" placeholder="11.111.111-1" formControlName="rut"></p-inputMask>
+                </div>
+            </div>
+            <br>
+            <button pButton type="submit" label="Confirmar" ></button>
+        </div>
+    </form>
+</div>
