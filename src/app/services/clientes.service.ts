@@ -1,14 +1,19 @@
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import axios from 'axios';
-environment
+import { MessageService } from 'primeng/api';
+import Swal from 'sweetalert2';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ClientesService {
 
-  constructor() { }
-
+  constructor(
+    private mensajes: MessageService,
+    private modalService: NgbModal
+  ) { }
 
   async Crear(body: any) {
     try {
@@ -18,8 +23,8 @@ export class ClientesService {
       if (res.status == 200) {
         return res.data;
       }
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      this.Errores(err);
     }
   }
   async TraerTodos() {
@@ -31,7 +36,21 @@ export class ClientesService {
         return res.data;
       }
     } catch (err) {
-      console.error(err);
+      this.Errores(err);
+    
+    }
+  }
+
+  async BuscarID(id: any) {
+    try {
+      const res = await axios.get(environment.API + 'clientes/buscar/' + id, {
+        responseType: 'json',
+      });
+      if (res.status == 200) {
+        return res.data;
+      }
+    } catch (err) {
+      this.Errores(err);
     }
   }
 
@@ -44,7 +63,14 @@ export class ClientesService {
         return res.data
       }
     } catch (err) {
-      console.error(err);
+      this.Errores(err);
     }
+  }
+
+  Errores(error:any) {
+    console.error(error);
+    Swal.close();
+    this.mensajes.add({ severity: 'error', summary: 'Error en la base de datos' });
+    this.modalService.dismissAll();
   }
 }

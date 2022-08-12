@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import Swal from 'sweetalert2';
 import { AlertHelper } from '../../helpers/alertas/alert.helpers';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-listaclientes',
   templateUrl: './lista-clientes.component.html',
@@ -12,11 +13,14 @@ export class ListaClientesComponent implements OnInit {
 
    clientes: any
    MostrarAgregar:boolean = false
+   MostrarEditar:boolean = false
+   modificarid:any;
 
   constructor(
     private servicio:ClientesService,
     private mensajes: MessageService,
     private alert: AlertHelper,
+    private modalService: NgbModal
   ) { }
 
   ngOnInit(): void {
@@ -31,6 +35,13 @@ export class ListaClientesComponent implements OnInit {
 
   mostrar(){
     this.MostrarAgregar=true;
+  }
+  async editar(content: any ,id: any){
+    // let res = await this.servicio.BuscarID(id);
+    // console.log(res);
+    this.modificarid=id
+    this.modalService.open(content, { size: 'xl',centered:true });
+
   }
 
   ActualizarTabla(event:any){
@@ -70,7 +81,6 @@ export class ListaClientesComponent implements OnInit {
         }
       }
     })
-   
   }
 
 }

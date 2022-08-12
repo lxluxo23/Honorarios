@@ -28,7 +28,7 @@ export class AgregarClienteComponent implements OnInit {
     if (this.formularioContacto.valid) {
       try {
         let respuesta = await this.servicio.Crear(this.formularioContacto.value);
-        if (respuesta=! undefined && respuesta.success==true) {
+        if (respuesta!= undefined && respuesta.success==true) {
           this.EventoAgregar.emit(true)
           this.mensajes.add({severity:'success', summary:respuesta.msg});
         }

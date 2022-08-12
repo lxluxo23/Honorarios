@@ -6,6 +6,7 @@ import { AgregarClienteComponent } from './agregar-cliente/agregar-cliente.compo
 import { MainClientesComponent } from './main-clientes/main-clientes.component';
 import { MaterialModule } from '../material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditarClienteComponent } from './editar-cliente/editar-cliente.component';
 
 
 
@@ -13,7 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     ListaClientesComponent,
     AgregarClienteComponent,
-    MainClientesComponent
+    MainClientesComponent,
+    EditarClienteComponent
   ],
   imports: [
     CommonModule,
