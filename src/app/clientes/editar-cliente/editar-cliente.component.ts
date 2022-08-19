@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AlertHelper } from 'src/app/helpers/alertas/alert.helpers';
 import { ClientesService } from 'src/app/services/clientes.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-editar-cliente',
@@ -17,8 +18,10 @@ export class EditarClienteComponent implements OnInit {
   constructor(
     private servicio: ClientesService,
     private alert: AlertHelper,
+    private mensajes: MessageService,
   ) { }
   formulario = new FormGroup({
+    id: new FormControl(),
     nombre: new FormControl('', [Validators.required, Validators.minLength(10)]),
     rut: new FormControl('', [Validators.required])
 
@@ -35,6 +38,7 @@ export class EditarClienteComponent implements OnInit {
     let respuesta = await this.servicio.BuscarID(id);
     if (respuesta){
       this.clientes=respuesta
+      this.formulario.get('id')?.setValue(this.ClienteID);
       this.formulario.get('nombre')?.setValue(this.clientes.nombre);
       this.formulario.get('rut')?.setValue(this.clientes.rut);
       Swal.close();
@@ -45,9 +49,10 @@ export class EditarClienteComponent implements OnInit {
   async editar() {
     if (this.formulario.valid) {
       try {
-        let respuesta = await this.servicio.Crear(this.formulario.value);
+        console.log (this.formulario.value)
+        let respuesta = await this.servicio.Modificar(this.formulario.value);
         if (respuesta!= undefined && respuesta.success==true) {
-          
+          this.mensajes.add({severity:'success', summary:respuesta.msg});
         }
         else{
          

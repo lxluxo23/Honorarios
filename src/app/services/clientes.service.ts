@@ -40,6 +40,18 @@ export class ClientesService {
     
     }
   }
+  async Modificar(cliente:any) {
+    try {
+      const res = await axios.put(environment.API + `clientes/actualizar/${cliente.id}`,cliente, {
+        responseType: 'json',
+      });
+      if (res.status == 200) {
+        return res.data;
+      }
+    } catch (err) {
+      this.Errores(err);
+    }
+  }
 
   async BuscarID(id: any) {
     try {

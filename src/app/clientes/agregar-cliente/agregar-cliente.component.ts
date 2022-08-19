@@ -2,7 +2,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { ClientesService } from '../../services/clientes.service';
-
+import { AlertHelper } from 'src/app/helpers/alertas/alert.helpers';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-agregar-cliente',
   templateUrl: './agregar-cliente.component.html',
@@ -14,7 +15,7 @@ export class AgregarClienteComponent implements OnInit {
   constructor(
     private servicio: ClientesService,
     private mensajes: MessageService,
-
+    private alert: AlertHelper,
   ) { }
 
   formularioContacto = new FormGroup({
@@ -26,9 +27,11 @@ export class AgregarClienteComponent implements OnInit {
   }
   async submit() {
     if (this.formularioContacto.valid) {
+      this.alert.loadingAlert();
       try {
         let respuesta = await this.servicio.Crear(this.formularioContacto.value);
         if (respuesta!= undefined && respuesta.success==true) {
+          Swal.close();
           this.EventoAgregar.emit(true)
           this.mensajes.add({severity:'success', summary:respuesta.msg});
         }
