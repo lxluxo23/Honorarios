@@ -7,7 +7,17 @@ export const navbarData = [
     {
         routeLink: 'clientes',
         icon: 'fal fa-solid fa-users',
-        label: 'Clientes'
+        label: 'Clientes',
+        children: [
+            {
+                routeLink: 'clientes/nuevo',
+                label: 'Nuevo cliente'
+            },
+            {
+                routeLink: 'clientes/buscar',
+                label: 'Buscar cliente'
+            }
+        ]
     },
     {
         routeLink: 'conceptos',

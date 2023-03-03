@@ -1,0 +1,17 @@
+<p-sidebar class="my-sidebar" [visible]="sidebarVisible" (onHide)="sidebarVisible=false" [dismissible]="false">
+    <ul class="sidenav-nav">
+        <li *ngFor="let item of navbarData">
+            <a [routerLink]="[item.routeLink]" [class.active]="isActive(item)">
+                <i [class]="item.icon"></i>
+                {{ item.label }}
+            </a>
+            <ul *ngIf="item.children" class="sub-menu">
+                <li *ngFor="let subItem of item.children">
+                    <a [routerLink]="[subItem.routeLink]" [class.active]="isActive(subItem)">
+                        {{ subItem.label }}
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</p-sidebar>

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
 //modulos de estilos
 import { PrimeNgModule } from './PrimeNg.module';
 import { MaterialModule } from './material.module';
@@ -10,7 +10,7 @@ import { MaterialModule } from './material.module';
 //componentes compartidos
 import { AppComponent } from './app.component';
 import { BodyComponent } from './body/body.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
+import { SidenavComponent } from './shared/sidenav/sidenav.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { TipoPagoComponent } from './tipo-pago/tipo-pago.component';
@@ -35,7 +35,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     InicioComponent,
     TipoPagoComponent,
     ConceptosComponent
-    
+
   ],
   imports: [
     BrowserModule,
@@ -47,7 +47,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MaterialModule,
     ClientesModule,
 
-    
+
   ],
   providers: [
     MessageService,

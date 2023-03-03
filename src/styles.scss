@@ -1,54 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
-@import "../node_modules/primeng/resources/primeng.min.css";
-@import "../node_modules/primeicons/primeicons.css";
-@import "../node_modules/primeng/resources/themes/md-dark-indigo/theme.css";
+// @import "../node_modules/primeng/resources/primeng.min.css";
+// @import "../node_modules/primeicons/primeicons.css";
+// @import "../node_modules/primeng/resources/themes/md-dark-indigo/theme.css";
+
+// @import "../node_modules/primeng/resources/themes/bootstrap4-dark-blue/theme.css";
+// @import "../node_modules/primeflex/primeflex.scss";
 @import "../node_modules/primeflex/primeflex.scss";
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    position: relative;
-    font-family: 'Roboto', sans-serif;
-    background: #263238;
-}
-
-
-
-.card {
-    display: flex;
-    flex-direction: column;
-    margin: 1.25rem 0 1.25rem 0;
-    //box-shadow: 0 .25rem .5rem #e6edef;
-    .card-head {
-        padding: 1rem 1.5rem;
-        font-size: 1rem;
-        font-weight: 600;
-    }
-    .card-body {
-        padding: 1rem 1.5rem;
-    }
-	--bs-card-spacer-y: 1rem;
-	--bs-card-spacer-x: 1rem;
-	--bs-card-title-spacer-y: 0.5rem;
-	--bs-card-border-width: 1px;
-	--bs-card-border-color: var(--bs-border-color-translucent);
-	--bs-card-border-radius: 0.375rem;
-	--bs-card-box-shadow: ;
-	--bs-card-inner-border-radius: calc(0.375rem - 1px);
-	--bs-card-cap-padding-y: 0.5rem;
-	--bs-card-cap-padding-x: 1rem;
-	--bs-card-cap-bg: rgba(0, 0, 0, 0.03);
-	--bs-card-cap-color: ;
-	--bs-card-height: ;
-	--bs-card-color: ;
-	--bs-card-bg: #423636;
-	--bs-card-img-overlay-padding: 1rem;
-	--bs-card-group-margin: 0.75rem;
-	word-wrap: break-word;
-}
+//@import "../node_modules/primeng/primeng.scss";

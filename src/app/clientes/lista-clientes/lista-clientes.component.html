@@ -3,28 +3,14 @@
 <div class="card">
   <p-toolbar styleClass="p-mb-4">
     <ng-template pTemplate="left">
-      <button
-        pButton
-        pRipple
-        (click)="mostrar()"
-        label="Nuevo"
-        icon="pi pi-plus"
-        class="p-button-success p-mr-2"
-      ></button>
+      <button pButton pRipple (click)="mostrar()" label="Nuevo" icon="pi pi-plus"
+        class="p-button-success p-mr-2"></button>
     </ng-template>
   </p-toolbar>
-  <p-table
-    #dt
-    [value]="clientes"
-    [rows]="10"
-    [scrollable]="true"
-    scrollDirection="Horizontal"
-    [paginator]="true"
-    [rowHover]="true"
-    dataKey="id"
+  <p-table #dt [value]="clientes" [rows]="10" [scrollable]="true" scrollDirection="Horizontal" [paginator]="true"
+    [rowHover]="true" dataKey="id"
     currentPageReportTemplate="Mostrando desde {first} hasta {last} de {totalRecords} datos"
-    [showCurrentPageReport]="true"
-  >
+    [showCurrentPageReport]="true">
     <ng-template pTemplate="caption">
       <div class="p-d-flex p-ai-center p-jc-between">
         <h5 class="p-m-0">Buscar</h5>
@@ -63,20 +49,10 @@
         <td>{{ clientes.nombre }}</td>
         <td>{{ clientes.rut }}</td>
         <td>
-          <button
-            pButton
-            pRipple
-            icon="pi pi-pencil"
-            (click)="editar(content,clientes.id)"
-            class="p-button-rounded p-button-success p-mr-2"
-          ></button>
-          <button
-            pButton
-            pRipple
-            icon="pi pi-trash"
-            (click)="eliminar(clientes.id)"
-            class="p-button-rounded p-button-warning"
-          ></button>
+          <button pButton pRipple icon="pi pi-pencil" (click)="editar(content,clientes.id)"
+            class="p-button-rounded p-button-success p-mr-2"></button>
+          <button pButton pRipple icon="pi pi-trash" (click)="eliminar(clientes.id)"
+            class="p-button-rounded p-button-warning"></button>
         </td>
       </tr>
     </ng-template>
@@ -87,16 +63,9 @@
 
 <!-- modal agregar -->
 
-<p-dialog
-
-  [(visible)]="MostrarAgregar"
-  [modal]="true"
-  [style]="{ width: '75%' }"
-  [baseZIndex]="10000"
-  [draggable]="false"
-  [resizable]="true"
->
-<app-agregar-cliente (EventoAgregar)="ActualizarTabla($event)"></app-agregar-cliente>
+<p-dialog [(visible)]="MostrarAgregar" [modal]="true" [style]="{ width: '75%' }" [baseZIndex]="10000"
+  [draggable]="false" [resizable]="true">
+  <app-agregar-cliente (EventoAgregar)="ActualizarTabla($event)"></app-agregar-cliente>
   <ng-template pTemplate="footer">
     <!-- <p-button icon="pi pi-check" (click)="MostrarAgregar=false" label="Yes" class="p-button-text"></p-button>
         <p-button icon="pi pi-times" (click)="MostrarAgregar=false" label="No"></p-button> -->
@@ -109,7 +78,7 @@
     <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
   </div>
   <div class="modal-body color">
-    <app-editar-cliente [ClienteID]="modificarid" ></app-editar-cliente>
+    <app-editar-cliente [ClienteID]="modificarid"></app-editar-cliente>
   </div>
   <div class="modal-footer color">
   </div>

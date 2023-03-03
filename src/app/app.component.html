@@ -1,5 +1,7 @@
-<app-sidenav (onToggleSideNav)="onToggleSideNav($event)"></app-sidenav>
-<app-body
-    [collapsed]="isSideNavCollapsed"
-    [screenWidth]="screenWidth"
-></app-body>
+<div class="navbar-header">
+    <button pButton type="button" icon="pi pi-bars" (click)="toggleMenu()"
+        class="p-button-rounded p-button-primary"></button>
+</div>
+
+<app-sidenav #menu></app-sidenav>
+<app-body></app-body>
