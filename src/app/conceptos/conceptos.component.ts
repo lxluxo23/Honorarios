@@ -1,3 +1,4 @@
+import { ConceptosService } from './../services/conceptos.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,21 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./conceptos.component.scss']
 })
 export class ConceptosComponent implements OnInit {
+conceptos:any
 
-  conceptos:any=[
-    {
-    id:1,
-    descripcion:'descripcion1'
-  },
-  {
-    id:2,
-    descripcion:'descripcion2'
-  }
-]
+  constructor(
+    private servicio:ConceptosService
 
-  constructor() { }
+  ) { }
 
   ngOnInit(): void {
+    this.Traerdatos()
   }
 
+
+  async Traerdatos(){
+    this.conceptos=[]
+    let respuesta = await this.servicio.TraerTodos()
+    this.conceptos=respuesta
+  }
 }
